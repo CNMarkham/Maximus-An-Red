@@ -14,7 +14,6 @@ public class Throwable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemyCount2 = 5;
         throwableCounter = 0;
         Teleporter = FindObjectOfType<Teleport>();
     }
@@ -34,8 +33,9 @@ public class Throwable : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D other)
     {
-        {
+        
         if (other.gameObject.CompareTag("Collectable"))
+        {
             throwableCounter += 1;
             collectableCounter.text = throwableCounter.ToString();
             Teleporter.enemyCount -= 1;
