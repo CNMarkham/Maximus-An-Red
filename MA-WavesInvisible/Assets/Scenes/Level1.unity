@@ -2668,6 +2668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e34ec67147180940a66839fc4286522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Avatar: {fileID: 975366465}
   avatarRigidbody: {fileID: 975366486}
 --- !u!114 &975366479
 MonoBehaviour:
