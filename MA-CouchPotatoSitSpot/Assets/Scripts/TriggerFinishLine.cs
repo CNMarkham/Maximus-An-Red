@@ -4,17 +4,25 @@ using UnityEngine;
 
 public class TriggerFinishLine : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision other)
+    public CheckpointCounter checkpointTracker;
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            print("Go Touch Air!");
+            if(checkpointTracker.triggeredCheckpoints == checkpointTracker.numberOfCheckpoints)
+            {
+                print("Go Touch Air!");
+            } else
+            {
+                print("Good job, just like me!");
+            }
+            
         }
     }
     // Start is called before the first frame update
     void Start()
     {
-        Step 58
+   
     }
 
     // Update is called once per frame
