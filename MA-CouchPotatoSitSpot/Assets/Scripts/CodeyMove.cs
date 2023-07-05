@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class CodeyMove : MonoBehaviour
 {
-    public float Speed = 15f;
+    public float Speed = 40f;
     Animator anim;
     public bool running = false;
     public bool canMove = true;

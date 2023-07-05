@@ -11,10 +11,11 @@ public class TimersCountdown : MonoBehaviour
 
     public float totalLapTime;
     public float totalCountdownTime;
+    public SelectRandomPoweroop Poweroop;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Player.Speed = 200;
     }
 
     // Update is called once per frame
@@ -31,9 +32,9 @@ public class TimersCountdown : MonoBehaviour
             startCountdown.text = ToString();
             totalLapTime -= Time.deltaTime;
             lapTime.text = Mathf.Round(totalLapTime).ToString();
-            Player.Speed = 40;
+            
         }
-        if(totalCountdownTime < 0)
+        if (totalCountdownTime < 0)
         {
             print("Time is up, you awful little piece of paper!");
         }

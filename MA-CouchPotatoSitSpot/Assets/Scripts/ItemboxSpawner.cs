@@ -7,6 +7,7 @@ public class ItemboxSpawner : MonoBehaviour
     public GameObject ItemBox;
 
     public int numberOfBoxes;
+ 
     // Start is called before the first frame update
     void Start()
     {
