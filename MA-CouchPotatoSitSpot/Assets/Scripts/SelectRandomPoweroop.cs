@@ -17,21 +17,28 @@ public class SelectRandomPoweroop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.Space) == true && randomNumberInList == 0)
+        if (Input.GetKey(KeyCode.Space) == true && randomNumberInList == 0)
         {
-            Vector3 spawnLocation = transform.position + transform.forward * 1500;
+            Vector3 spawnLocation = transform.position + transform.forward * 15;
             GameObject Shell = Instantiate(poweroopList[0], spawnLocation, transform.rotation);
             GetComponent<CodeyMove>().Speed = -400;
             print("GET DEBUFFED LLLLLLL");
         }
         if (Input.GetKey(KeyCode.Space) == true && randomNumberInList == 1)
         {
-            Vector3 spawnLocation = GameObject.FindGameObjectWithTag("FinishBine").transform.position;
-            GameObject Shell = Instantiate(poweroopList[1], spawnLocation, transform.rotation);
+            Vector3 spawnLocation = transform.position + transform.forward * 15;
+            GameObject Shell = Instantiate(poweroopList[0], spawnLocation, transform.rotation);
             GetComponent<CodeyMove>().Speed = -400;
             print("GET DEBUFFED LLLLLLL");
-            Invoke("DisabklePlayerMovement", 7);
         }
+        //if (Input.GetKey(KeyCode.Space) == true && randomNumberInList == 1)
+        //{
+        //    Vector3 spawnLocation = GameObject.FindGameObjectWithTag("FinishBine").transform.position;
+        //    GameObject Shell = Instantiate(poweroopList[1], spawnLocation, transform.rotation);
+        //    GetComponent<CodeyMove>().Speed = -400;
+        //    print("GET DEBUFFED LLLLLLL");
+        //    Invoke("DisabklePlayerMovement", 7);
+        //}
         if (Input.GetKey(KeyCode.Space) == true && randomNumberInList == 2)
         {
             Vector3 spawnLocation = GameObject.FindGameObjectWithTag("FinishBine").transform.position;

@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class NavMeshMovement : MonoBehaviour
 {
+    
    
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,19 @@ public class NavMeshMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<NavMeshAgent>().destination = FindObjectOfType<CodeyMove>().gameObject.transform.position;
+
+
+
+        GetComponent<NavMeshAgent>().destination = GameObject.FindGameObjectWithTag("Obstacle").transform.position;
+    }
+    
+    public void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Obstacle")
+        {
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+
+        }
     }
 }

@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class ShellMovement : MonoBehaviour
 {
+    Rigidbody thing;
     // Start is called before the first frame update
     void Start()
     {
-        
+        thing = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.forward * Time.deltaTime * 50;
+        thing.AddForce(transform.forward * Time.deltaTime * 5);
     }
 
     public void OnCollisionEnter(Collision other)

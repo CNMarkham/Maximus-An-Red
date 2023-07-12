@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class TimersCountdown : MonoBehaviour
 {
     public CodeyMove Player;
+    public CheckpointCounter checkpointTracker;
+    public Text winText;
     public Text lapTime;
     public Text startCountdown;
 
@@ -14,6 +16,12 @@ public class TimersCountdown : MonoBehaviour
     public SelectRandomPoweroop Poweroop;
     // Start is called before the first frame update
     void Start()
+    {
+        Invoke("Thing", 4);
+        
+    }
+
+    void Thing()
     {
         Player.Speed = 200;
     }
@@ -29,10 +37,15 @@ public class TimersCountdown : MonoBehaviour
         } 
         if(totalCountdownTime <= 0)
         {
-            startCountdown.text = ToString();
-            totalLapTime -= Time.deltaTime;
-            lapTime.text = Mathf.Round(totalLapTime).ToString();
-            
+            if (checkpointTracker.triggeredCheckpoints != checkpointTracker.numberOfCheckpoints)
+            {
+                startCountdown.text = ToString();
+                totalLapTime -= Time.deltaTime;
+                lapTime.text = Mathf.Round(totalLapTime).ToString();
+            }
+            //winText.text = "You Got Worse";
+
+
         }
         if (totalCountdownTime < 0)
         {
@@ -41,7 +54,7 @@ public class TimersCountdown : MonoBehaviour
         totalLapTime -= Time.deltaTime;
         totalCountdownTime -= Time.deltaTime;
 
-        lapTime.text = Mathf.Round(totalLapTime).ToString();
+        //lapTime.text = Mathf.Round(totalLapTime).ToString();
         startCountdown.text = Mathf.Round(totalCountdownTime).ToString();
     }
 }
