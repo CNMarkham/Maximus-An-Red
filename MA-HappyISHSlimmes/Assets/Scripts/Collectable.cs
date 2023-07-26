@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Collectable : MonoBehaviour
 {
+    public AnimationCurve curve;
+    public float CollectableNumber;
+    public Vector3 startpos;
+    public Vector3 endpos;
+    public float time;
     public float distanceToMove;
-    private Vector3 startingPosition;
-    private Vector3 endingPosition;
+
     public float speed = 0.1f;
     public float direction = -1f;
 
@@ -25,15 +29,20 @@ public class Collectable : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.name == "Slime")
         {
             gameObject.SetActive(false);
-            Invoke("LoadNextScene, 2f");
+            CollectableNumber += 1;
         }
     }
     // Update is called once per frame
     void Update()
     {
-        
+        if(CollectableNumber >= 1)
+        {
+            Invoke("LoadNextScene", 2f);
+        }
+        time += Time.deltaTime;
+        transform.position = Vector3.Lerp(startpos, endpos, curve.Evaluate(time));
     }
 }
