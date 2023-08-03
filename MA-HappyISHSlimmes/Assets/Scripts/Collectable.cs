@@ -20,7 +20,7 @@ public class Collectable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        CollectableNumber = 0;
     }
     private void LoadNextScene()
     {
@@ -38,7 +38,7 @@ public class Collectable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(CollectableNumber >= 1)
+        if(CollectableNumber >= 2)
         {
             Invoke("LoadNextScene", 2f);
         }

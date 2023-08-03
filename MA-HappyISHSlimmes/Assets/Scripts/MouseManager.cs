@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MouseManager : MonoBehaviour
 {
+    public Collectable collectable;
     public LivesManager livesManager;
     [Header("Mouse Info")]
     public Vector3 clickStartLocation;
@@ -33,6 +34,7 @@ public class MouseManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             clickStartLocation = Input.mousePosition;
+            
         }
         if (Input.GetMouseButton(0))
         {
