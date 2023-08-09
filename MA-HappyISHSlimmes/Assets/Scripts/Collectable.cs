@@ -29,7 +29,7 @@ public class Collectable : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "Slime")
+        if (other.name == "Player")
         {
             gameObject.SetActive(false);
             CollectableNumber += 1;
